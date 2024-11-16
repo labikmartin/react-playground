@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense, useLayoutEffect, useState } from 'react';
 import './App.css';
 const D3NetworkMapPage = lazy(() => import('@D3NetworkMap/D3NetworkMapPage'));
 const PlaygroundPage = lazy(() => import('@Playground/PlaygroundPage'));
@@ -20,9 +20,26 @@ const apps = [
 
 type App = (typeof apps)[number];
 
+const activeAppLocalStorageKey = 'app' as const;
+
 function App() {
-  const [activePage, setActivePage] = useState<App | null>(null);
-  const Page = activePage?.component || (() => <></>);
+  const [activeApp, setActiveApp] = useState<App | null>(null);
+  const Page = activeApp?.component || (() => <></>);
+
+  function handleSetActivePage(app: App) {
+    localStorage.setItem(activeAppLocalStorageKey, app.id);
+
+    setActiveApp(app);
+  }
+
+  useLayoutEffect(() => {
+    const activeAppId = localStorage.getItem(activeAppLocalStorageKey);
+    const activeApp = apps.find((app) => app.id == activeAppId);
+
+    if (activeApp) {
+      setActiveApp(activeApp);
+    }
+  }, []);
 
   return (
     <>
@@ -30,7 +47,7 @@ function App() {
         <ul>
           {apps.map((app) => (
             <li key={app.id}>
-              <button type="button" onClick={() => setActivePage(app)}>
+              <button type="button" onClick={() => handleSetActivePage(app)}>
                 {app.name}
               </button>
             </li>
@@ -38,7 +55,7 @@ function App() {
         </ul>
       </nav>
       <main>
-        {activePage == null && (
+        {activeApp == null && (
           <section className="section">
             <h1>Welcome to the React Playground App</h1>
             <p>Select an app from the navigation to get started.</p>

@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react';
-import { select as d3select, path as d3path, arc, Selection } from 'd3';
+import { select as d3select, path as d3path, arc, type Selection } from 'd3';
 import { data } from './D3NetworkMap.data';
 
 function paintPath(
