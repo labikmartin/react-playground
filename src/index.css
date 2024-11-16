@@ -30,9 +30,12 @@ body {
   min-height: 100vh;
 }
 
-nav {
+nav ul {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
 }
 
 h1 {
@@ -70,4 +73,9 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+ul,
+li {
+  list-style: none;
 }

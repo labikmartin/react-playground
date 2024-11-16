@@ -26,7 +26,8 @@
     /* Custom */
     "baseUrl": ".",
     "paths": {
-      "@D3NetworkMap/*": ["src/features/D3NetworkMap/*"]
+      "@D3NetworkMap/*": ["src/features/D3NetworkMap/*"],
+      "@Playground/*": ["src/features/Playground/*"]
     }
   },
   "include": ["src"]
