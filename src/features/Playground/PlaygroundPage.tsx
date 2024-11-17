@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
+import { UserForm } from './features/User/UserForm';
 
 export default function PlaygroundPage() {
   const [counter, setCounter] = useState(0);
@@ -14,6 +15,7 @@ export default function PlaygroundPage() {
       <button onClick={() => setCounter((state) => state + 1)}>
         Clicked {counter} times
       </button>
+      <UserForm />
     </div>
   );
 }
