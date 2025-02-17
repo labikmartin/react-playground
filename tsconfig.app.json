@@ -7,11 +7,12 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
 
     "types": ["node", "@testing-library/jest-dom", "vitest/globals"],
 
     /* Bundler mode */
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -29,7 +30,8 @@
     "baseUrl": ".",
     "paths": {
       "@D3NetworkMap/*": ["src/features/D3NetworkMap/*"],
-      "@Playground/*": ["src/features/Playground/*"]
+      "@Playground/*": ["src/features/Playground/*"],
+      "@/components": ["src/components"]
     }
   },
   "include": ["src"]
