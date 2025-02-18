@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { UserForm } from './features/User/UserForm';
+import { FilePicker } from '@/components';
 
 export default function PlaygroundPage() {
   const [counter, setCounter] = useState(0);
@@ -16,6 +17,7 @@ export default function PlaygroundPage() {
         Clicked {counter} times
       </button>
       <UserForm />
+      <FilePicker name="file" id="file" onSelect={console.log} />
     </div>
   );
 }

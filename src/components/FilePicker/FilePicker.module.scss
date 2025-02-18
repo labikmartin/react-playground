@@ -1,0 +1,23 @@
+.FilePicker {
+  position: relative;
+
+  &__input {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  &__previewGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__preview {
+    flex: 1 1 100px;
+    max-width: 100px;
+  }
+}
